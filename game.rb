@@ -1,4 +1,5 @@
 require_relative 'die'
+require_relative 'game_turn'
 
 class Game
   attr_reader :title
@@ -13,28 +14,8 @@ class Game
   end
 
   def play
-    
     @players.each do |player|
-      die = Die.new
-      # if number_rolled >= 5
-      #   player.wOOt
-      # elsif number_rolled >= 3
-      #   puts "#{player.name} was skipped"
-      # else
-      #   player.blam
-      # end
-
-      case die.roll
-      when 1..2
-        player.blam
-      when 3..4
-        puts "#{player.name} was skipped"
-      when 5..6
-        player.wOOt
-      else
-        puts "invalid dice roll"
-      end
-        
+      GameTurn.take_turn(player)
       puts player
     end  
   end
