@@ -1,4 +1,4 @@
-require_relative "player"
+require_relative "../player"
 
 describe Player do
   before do
@@ -32,4 +32,27 @@ describe Player do
     @player.blam
     expect(@player.health).to eq(140)
   end
+
+  context "player has initial health of 150" do
+    before do
+      @initial_health = 150
+      @player = Player.new("curly", @initial_health)
+    end
+    it "is player strong?" do
+      # expect(@player.strong?).to be true
+      expect(@player).to be_strong
+    end
+  end
+
+  context "player has initial health of 100" do
+    before do
+      @initial_health = 100
+      @player = Player.new("curly", @initial_health)
+    end
+    it "is player wimpy?" do
+      # expect(@player.strong?).to be true
+      expect(@player).not_to be_strong
+    end
+  end
+
 end
