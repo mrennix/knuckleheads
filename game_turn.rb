@@ -1,4 +1,5 @@
 require_relative 'die'
+require_relative 'treasure_trove'
 
 module GameTurn
   def self.take_turn(player)
@@ -14,7 +15,13 @@ module GameTurn
     else
       puts "invalid dice roll"
     end
+    find_treasure(player)
 
+  end
+
+  def self.find_treasure(player)
+    treasure = TreasureTrove::TREASURES.sample
+    puts "#{player.name} found a #{treasure.name} worth #{treasure.points} points."
   end
   
 end
