@@ -29,4 +29,12 @@ RSpec.describe Game do
     expect(@player.health).to eq(@initial_health - (10 * @rounds))
   end
 
+  it "assigns a treasure for points during a player's turn" do
+    @game.play(1)
+    expect(@player.points).not_to be_zero
+
+  # or use alternate expectation syntax:
+  # expect(player.points).not_to be_zero
+end
+
 end

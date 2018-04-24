@@ -9,7 +9,7 @@ game = Game.new("Knuckleheads")
 game.add_player(player1)
 game.add_player(player2)
 game.add_player(player3)
-rounds = 2
+rounds = 3
 game.play(rounds)
 game.print_stats
 

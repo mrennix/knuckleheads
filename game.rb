@@ -41,6 +41,11 @@ class Game
     puts "\n#{wimpy_players.size} wimpy players"
     print_players(wimpy_players)
 
+    @players.sort.each do |player|
+      puts "\n#{player.name}'s point totals:"
+      puts "#{player.points} grand total points."
+    end
+
     puts "\n#{title} High Scores:"
     @players.sort.each do |player|
       puts "#{player.name.ljust(20, '.')} #{player.score}"
